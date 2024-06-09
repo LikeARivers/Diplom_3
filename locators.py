@@ -23,7 +23,6 @@ class SBurgersLocators:
     TOP_AREA_INGREDIENTS = (By.CSS_SELECTOR, 'span.constructor-element__text') # верхняя зона добавления ингредиента
     INDICATOR_INGREDIENTS = (By.XPATH, '//p[@class="counter_counter__num__3nue1" and text()="2"]') #счетчик ингредиента
     ORDERS_ID_TEXT = (By.XPATH, "//p[text()='идентификатор заказа']") # надпись идентификатор заказа в окне оформления заказа
-    LIST_OF_ORDERS_BUTTON = (By.XPATH, "//p[text()='Лента Заказов']")  # кнопка Лента Заказов
     ORDER_ON_LIST = (By.CLASS_NAME, "OrderHistory_dataBox__1mkxK") # первый заказ в ленте заказов
     COMPOSITION_TEXT = (By.XPATH, "//p[text()='Cостав']") # текст Состав в окне с деталями заказа
     ORDER_CARD = (By.XPATH, "//*[contains(@class, 'OrderHistory_listItem')]") # карточка с заказом в истории заказов

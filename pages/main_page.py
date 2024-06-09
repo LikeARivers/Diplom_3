@@ -24,7 +24,7 @@ class MainFunctional(BasePage):
         element = self.wait_and_find_element(locators.SBurgersLocators.ORDER_FEED_BUTTON)
         self.driver.execute_script("arguments[0].click();", element)
 
-    @allure.step('клик по кнопке Флюоресцентной булке R2-D3')
+    @allure.step('клик по Флюоресцентной булке R2-D3')
     def click_to_bun_r2_d3(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.BUN_R2_D3_IMG)
         self.driver.execute_script("arguments[0].click();", element)
@@ -34,15 +34,15 @@ class MainFunctional(BasePage):
         element = self.wait_and_find_element(locators.SBurgersLocators.DETAILS_INGREDIENT)
         return element.is_displayed()
 
-    @allure.step('провекра отсутствия крестика')
-    def close_button_not_on_displayed(self):
-        element = self.wait_and_find_close_element(locators.SBurgersLocators.CLOSE_BUTTON)
-        return not element.is_displayed()
-
     @allure.step('клик по крестику')
     def click_to_close_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.CLOSE_BUTTON)
         self.driver.execute_script("arguments[0].click();", element)
+
+    @allure.step('проверка отсутствия крестика')
+    def close_button_not_on_displayed(self):
+        element = self.wait_and_find_close_element(locators.SBurgersLocators.CLOSE_BUTTON)
+        return not element.is_displayed()
 
     @allure.step('перетаскиваем Флюоресцентную булку R2-D3 к верхней зоне добавления ингредиента')
     def drag_and_drop_bun_to_top_area(self):

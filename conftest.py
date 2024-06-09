@@ -4,8 +4,8 @@ import pytest
 import urls
 import data
 import allure
-from locators import SBurgersLocators
-from pages.base_page import BasePage
+from pages.personal_account_page import PersonalAccount
+from pages.main_page import MainFunctional
 
 
 @pytest.fixture(params=['chrome', 'firefox'])
@@ -17,7 +17,6 @@ def driver(request):
     elif request.param == 'chrome':
         browser = webdriver.Chrome()
     browser.maximize_window()
-    #browser.get(urls.URL.STELLAR_BURGERS)
 
     yield browser
 
@@ -26,17 +25,14 @@ def driver(request):
 @allure.step("Авторизация")
 @pytest.fixture(scope='function')
 def login_user(driver):
-    base_page = BasePage(driver)
-    base_page.open_page(urls.URL.STELLAR_BURGERS)
-    personal_account_click = base_page.wait_and_find_element(SBurgersLocators.PERSONAL_ACCOUNT_BUTTON)
-    driver.execute_script("arguments[0].click();", personal_account_click)
-    input_email = base_page.wait_and_find_element(SBurgersLocators.AUTHORIZATION_INPUT_EMAIL)
-    input_email.send_keys(data.StellarBurgersTestsData.EMAIL)
-    input_password = base_page.wait_and_find_element(SBurgersLocators.AUTHORIZATION_INPUT_PASSWORD)
-    input_password.send_keys(data.StellarBurgersTestsData.PASSWORD)
-    click_to_login = base_page.wait_and_find_element(SBurgersLocators.AUTHORIZATION_LOGIN_BUTTON)
-    driver.execute_script("arguments[0].click();", click_to_login)
-    wait_checkout_button = base_page.wait_and_find_element(SBurgersLocators.CHECKOUT_BUTTON)
+    login_personal_account = PersonalAccount(driver)
+    main_functional = MainFunctional(driver)
+    login_personal_account.open_page(urls.URL.STELLAR_BURGERS)
+    main_functional.click_to_personal_account()
+    login_personal_account.input_email(data.StellarBurgersTestsData.EMAIL)
+    login_personal_account.input_password(data.StellarBurgersTestsData.PASSWORD)
+    login_personal_account.click_to_login()
+    login_personal_account.wait_checkout_button()
 
 @allure.step("Создание пользователя")
 @pytest.fixture(scope='function')
