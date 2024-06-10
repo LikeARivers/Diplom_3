@@ -18,7 +18,7 @@ class PersonalAccount(BasePage):
     @allure.step('клик по кнопке Войти')
     def click_to_login(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.AUTHORIZATION_LOGIN_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('ждем загрузку страницы Личный кабинет')
     def wait_personal_area_page(self):
@@ -32,7 +32,7 @@ class PersonalAccount(BasePage):
     @allure.step('клик по кнопке История заказов')
     def click_to_history_orders(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.HISTORY_ORDERS_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('ждем активацию кнопки История заказов')
     def history_order_active(self):
@@ -42,7 +42,7 @@ class PersonalAccount(BasePage):
     @allure.step('клик по кнопке Выход')
     def click_to_exit(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.EXIT_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('ждем загрузку страницы Вход')
     def wait_login_page(self):

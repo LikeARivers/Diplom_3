@@ -7,12 +7,12 @@ class RestorePassword(BasePage):
     @allure.step('клик по кнопке Личный кабинет')
     def click_to_personal_account(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.PERSONAL_ACCOUNT_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('клик по кнопке Восстановить пароль')
     def click_to_restore_password(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.RESTORE_PASSWORD_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('в поле Email вводим {email}')
     def input_email(self, email):
@@ -22,7 +22,7 @@ class RestorePassword(BasePage):
     @allure.step('клик по кнопке Восстановить')
     def click_to_restore_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.RESTORE_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('ждем загрузку страницы Восстановления пароля')
     def wait_restore_password_page(self):
@@ -32,7 +32,7 @@ class RestorePassword(BasePage):
     @allure.step('кликаем на кнопку показать/скрыть пароль')
     def click_eye_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.SHOW_HIDE_PASSWORD_BUTTON)
-        self.driver.execute_script("arguments[0].style.visibility = 'visible';", element)
+        self.set_element_visibility_with_js(element, 'visible')
         element.click()
 
     @allure.step('ждем активацию кнопки')

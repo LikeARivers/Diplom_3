@@ -5,6 +5,9 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    def click_element(self, element):
+        self.driver.execute_script("arguments[0].click();", element)
+
     def wait_and_find_element(self, locator):
         WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
@@ -33,3 +36,6 @@ class BasePage:
         all_tabs = self.driver.window_handles
         new_tab = all_tabs[-1]
         self.driver.switch_to.window(new_tab)
+
+    def set_element_visibility_with_js(self, element, visibility):
+        self.driver.execute_script(f"arguments[0].style.visibility = '{visibility}';", element)

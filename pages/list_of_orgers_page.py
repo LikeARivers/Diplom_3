@@ -7,7 +7,7 @@ class ListOfOrders(BasePage):
     @allure.step('Клик по заказу в ленте заказов')
     def click_to_order(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.ORDER_ON_LIST)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('Проверка отображения текста Состав')
     def text_composition_on_displayed(self):
@@ -17,7 +17,7 @@ class ListOfOrders(BasePage):
     @allure.step('Клик по кнопке История заказов')
     def click_to_history_orders(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.HISTORY_ORDERS_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('Ожидание активацию кнопки История заказов')
     def history_order_active(self):

@@ -7,12 +7,12 @@ class MainFunctional(BasePage):
     @allure.step('клик по кнопке Личный кабинет')
     def click_to_personal_account(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.PERSONAL_ACCOUNT_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('клик по кнопке Конструктор')
     def click_to_constructor_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.CONSTRUCTOR_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('проверка отображения текста Соберите бургер')
     def text_make_burger_on_displayed(self):
@@ -22,12 +22,12 @@ class MainFunctional(BasePage):
     @allure.step('клик по кнопке Лента заказов')
     def click_to_order_feed_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.ORDER_FEED_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('клик по Флюоресцентной булке R2-D3')
     def click_to_bun_r2_d3(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.BUN_R2_D3_IMG)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('проверка отображения текста Детали ингредиента')
     def text_details_ingredient_on_displayed(self):
@@ -37,7 +37,7 @@ class MainFunctional(BasePage):
     @allure.step('клик по крестику')
     def click_to_close_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.CLOSE_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('проверка отсутствия крестика')
     def close_button_not_on_displayed(self):
@@ -58,7 +58,7 @@ class MainFunctional(BasePage):
     @allure.step('клик по кнопке Оформить заказ')
     def click_to_checkout_button(self):
         element = self.wait_and_find_element(locators.SBurgersLocators.CHECKOUT_BUTTON)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.click_element(element)
 
     @allure.step('проверка отображения текста идентификатор заказа')
     def text_id_order_on_displayed(self):
